@@ -1,0 +1,58 @@
+<!-- @author Florin Ciornei -->
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Patient {{patient.name}}</h3>
+            <h4>{{patient.phoneNumber}}</h4>
+            <br>
+            <br><br>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" ng-class="{'active':measurementType=='heartRate'}" ng-click="changeMeasurementType('heartRate')">Heart
+                        rate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ng-class="{'active':measurementType=='temperature'}" ng-click="changeMeasurementType('temperature')">Temperature</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ng-class="{'active':measurementType=='bloodPressure'}" ng-click="changeMeasurementType('bloodPressure')">Blood
+                        pressure</a>
+                </li>
+            </ul>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-if="measurementType=='heartRate'" ng-repeat="m in measurements">
+                        <td>{{formatDate(m.timestamp)}}</td>
+                        <td>{{m.beatsPerMin}} beats/min</td>
+                    </tr>
+
+                    <tr ng-if="measurementType=='temperature'" ng-repeat="m in measurements">
+                        <td>{{formatDate(m.timestamp)}}</td>
+                        <td>{{(m.temperature+"").substring(0,4)}}&#8451;</td>
+                    </tr>
+
+                    <tr ng-if="measurementType=='bloodPressure'" ng-repeat="m in measurements">
+                        <td>{{formatDate(m.timestamp)}}</td>
+                        <td>
+                            Systolic Pressure: {{m.systolicPressure}}<br>
+                            Diastolic Pressure: {{m.diastolicPressure}}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class='col-6'>
+            <h3>Chart</h3>
+            <div class="ct-chart">
+            </div>
+        </div>
+    </div>
+</div>

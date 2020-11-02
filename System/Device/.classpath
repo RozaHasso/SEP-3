@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="U:/SEP3/Client/gson-2.6.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Model"/>
+	<classpathentry kind="lib" path="C:/git/SEP3/Client/gson-2.6.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
